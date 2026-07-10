@@ -1,4 +1,4 @@
-=== CapWebWPcare Core Functionality ===
+=== MRWPCare  Core Functionality ===
 Contributors: rynonet
 Tags: functionality
 Requires at least: 6.7.1
