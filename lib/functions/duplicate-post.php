@@ -5,16 +5,15 @@
  * Function for post duplication. Duplicates appear as drafts. User is redirected to the edit screen
  *
  * @package      Core_Functionality
- * @since        3.0.0
- * @link         https://github.com/capwebsolutions/fflassist-core-functionality
- * @author       Matt Ryan <matt@capwebsolutions.com>
+ * @since        3.0.2
+ * @author       Matt Ryan <matt@mattryan.co>
  * @copyright    Copyright (c) 2025, Matt Ryan
  * @license      http://opensource.org/licenses/gpl-2.0.php GNU Public License
  */
 
-function capweb_duplicate_post_as_draft(){
+function mrco_duplicate_post_as_draft(){
 	global $wpdb;
-	if (! ( isset( $_GET['post']) || isset( $_POST['post'])  || ( isset($_REQUEST['action']) && 'capweb_duplicate_post_as_draft' == $_REQUEST['action'] ) ) ) {
+	if (! ( isset( $_GET['post']) || isset( $_POST['post'])  || ( isset($_REQUEST['action']) && 'mrco_duplicate_post_as_draft' == $_REQUEST['action'] ) ) ) {
 		wp_die('No post to duplicate has been supplied!');
 	}
  
@@ -98,21 +97,21 @@ function capweb_duplicate_post_as_draft(){
 		wp_redirect( admin_url( 'post.php?action=edit&post=' . $new_post_id ) );
 		exit;
 	} else {
-		wp_die(esc_html__('Post creation failed, could not find original post: ', 'capwebwpcare-core-functionality') . esc_html($post_id));
+		wp_die(esc_html__('Post creation failed, could not find original post: ', 'mrwpcare-core-functionality') . esc_html($post_id));
 	}
 }
-add_action( 'admin_action_capweb_duplicate_post_as_draft','capweb_duplicate_post_as_draft' );
+add_action( 'admin_action_mrco_duplicate_post_as_draft','mrco_duplicate_post_as_draft' );
  
 /*
  * Add the duplicate link to action list for post_row_actions
  */
-function capweb_duplicate_post_link( $actions, $post ) {
+function mrco_duplicate_post_link( $actions, $post ) {
 	if (current_user_can('edit_posts')) {
-		$actions['duplicate'] = '<a href="' . wp_nonce_url('admin.php?action=capweb_duplicate_post_as_draft&post=' . $post->ID, basename(__FILE__), 'duplicate_nonce' ) . '" title="Duplicate this item" rel="permalink">Duplicate</a>';
+		$actions['duplicate'] = '<a href="' . wp_nonce_url('admin.php?action=mrco_duplicate_post_as_draft&post=' . $post->ID, basename(__FILE__), 'duplicate_nonce' ) . '" title="Duplicate this item" rel="permalink">Duplicate</a>';
 	}
 	return $actions;
 }
  
 // Enable Duplicate option for post and pages
-add_filter( 'post_row_actions','capweb_duplicate_post_link', 10, 2 );
-add_filter( 'page_row_actions','capweb_duplicate_post_link', 10, 2 );
+add_filter( 'post_row_actions','mrco_duplicate_post_link', 10, 2 );
+add_filter( 'page_row_actions','mrco_duplicate_post_link', 10, 2 );
