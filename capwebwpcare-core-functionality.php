@@ -1,16 +1,16 @@
 <?php
 /**
- * Plugin Name: CapWebWPcare Core Functionality
- * Plugin URI: https://github.com/CapWebSolutions/capwebwpcare-core-functionality
+ * Plugin Name: MrWPcare Core Functionality
+ * Plugin URI: https://github.com/MattRyanCo/mrwpcare-core-functionality
  * Description: This contains all this site's core functionality so that it is theme independent.
- * Version: 3.0.1
- * Author: Cap Web Solutions
- * Author URI: https://capwebsolutions.com
- * GitHub Plugin URI: https://github.com/CapWebSolutions/capwebwpcare-core-functionality
+ * Version: 3.0.2
+ * Author: Matt Ryan
+ * Author URI: https://mattryan.co
+ * GitHub Plugin URI: https://github.com/MattRyanCo/mrwpcare-core-functionality
  * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * 
- * Text Domain: capwebwpcare-core-functionality
+ * Text Domain: mrwpcare-core-functionality
  * 
  * This program is free software; you can redistribute it and/or modify it under the terms of the GNU
  * General Public License version 2, as published by the Free Software Foundation.  You may NOT assume
@@ -61,7 +61,7 @@ add_action( 'wp_enqueue_scripts','enqueue_core_scripts_and_styles' );
 /**
  * Get all the include files for the site.
  *
- * @author CapWebSolutions
+ * @author Matt Ryan
  */
 function include_core_functionality_inc_files() {
 	$files = [
